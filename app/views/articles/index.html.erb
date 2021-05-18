@@ -1,21 +1,40 @@
-<h1>Listing articles</h1>
-<%= link_to 'New article', new_article_path %>
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Text</th>
-    <th colspan="2"></th>
-  </tr>
+<head>
+    <style>
+        * {
+            background: #f7dbc6;
+        }
+
+        .article-wrap{
+            width:70%;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+        }
+
+        .single-article {
+            border: 2px solid #fba70e;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<div class = "article-wrap">
+
+    <h1 style="background:white">Listing articles</h1>
+    <p style="background:white; margin-bottom20px;" >
+        <%= link_to 'New article', new_article_path %>
+    </p>
 
   <% @articles.each do |article| %>
-    <tr>
-      <td><%= article.title %></td>
-      <td><%= article.text %></td>
-      <td><%= link_to 'Show', article_path(article) %></td>
-      <td><%= link_to 'Edit', edit_article_path(article) %></td>
-      <td><%= link_to 'Destroy', article_path(article),
+    <div class="single-article">
+      <h2><%= article.title %></h2>
+      <p><%= article.text %></p>
+      <p><%= link_to 'Show', article_path(article) %></p>
+      <p><%= link_to 'Edit', edit_article_path(article) %></p>
+      <p><%= link_to 'Destroy', article_path(article),
                     method: :delete,
-                    data: { confirm: 'Are you sure?' } %></td>
-    </tr>
+                    data: { confirm: 'Are you sure?' } %></p>
+    </div>
+
   <% end %>
-</table>
+</div>
